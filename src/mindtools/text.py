@@ -25,3 +25,13 @@ def word_count(text: str) -> int:
         raise TypeError("text must be a string")
 
     return len(text.split())
+
+def slugify(text: str) -> str:
+    """Convert text into a URL-friendly slug."""
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+
+    text = text.lower().strip()
+    text = re.sub(r"[^a-z0-9]+", "-", text)
+    return text.strip("-")
+    return text.strip("-")
